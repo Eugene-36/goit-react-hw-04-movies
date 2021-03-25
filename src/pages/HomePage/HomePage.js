@@ -3,13 +3,13 @@ import React, { Component } from "react";
 import api from "../../services/apiFilms";
 import MovieList from "../../components/MovieList/MovieList";
 
-class Home extends Component {
+class HomePage extends Component {
   state = {
     popularMovie: [],
     error: "Somthing went wrong....",
   };
   fetchMovie = () => {
-    const res = api()
+    api()
       .then((response) => {
         return response.results;
       })
@@ -45,4 +45,4 @@ class Home extends Component {
     );
   }
 }
-export default Home;
+export default HomePage;
