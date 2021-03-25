@@ -13,8 +13,6 @@ const MovieDetailsCard = ({
   onClick,
   propsik,
 }) => {
-  console.log(propsik);
-  //const { match } = this.props;
   const posterUrl = "https://image.tmdb.org/t/p/w500";
   let poster = backdrop_path ? `${posterUrl}${backdrop_path}` : image;
   return (

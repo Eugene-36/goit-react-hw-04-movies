@@ -16,7 +16,7 @@ class Cast extends Component {
 
   render() {
     const { cast } = this.state;
-    console.log(cast);
+
     const posterUrl = "https://image.tmdb.org/t/p/original";
 
     return cast.length > 0 ? (

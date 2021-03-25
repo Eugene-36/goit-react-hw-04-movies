@@ -3,10 +3,7 @@ import React, { Component, Suspense, lazy } from "react";
 import { Route, Switch } from "react-router";
 import Navigation from "./components/Navigation/Navigation";
 import routes from "./routes";
-//import api from "./services/apiFilms";
 
-//import Home from "./pages/HomePage/HomePage";
-//import MovieList from "./components/MovieList/MovieList";
 const HomePage = lazy(() =>
   import("./pages/HomePage/HomePage" /* webpackChunkName:'HomePage'*/)
 );
@@ -33,7 +30,6 @@ class App extends Component {
             </Switch>
           </Suspense>
         </>
-        {/* <Home /> */}
       </div>
     );
   }

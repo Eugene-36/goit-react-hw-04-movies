@@ -17,9 +17,8 @@ class MovieDetailsPage extends Component {
   };
 
   async componentDidMount() {
-    //  console.log(this.props.match.params);
     const { movieId } = this.props.match.params;
-    //  console.log(movieId);
+
     API.getDetails(movieId).then(
       ({ backdrop_path, id, overview, title, vote_average, genres }) => {
         this.setState({
@@ -39,8 +38,7 @@ class MovieDetailsPage extends Component {
   };
   render() {
     const { backdrop_path, genres, overview, title, vote_average } = this.state;
-    console.log(this.props);
-    console.log(genres);
+
     return (
       <>
         <MovieDetailsCard

@@ -25,7 +25,6 @@ class MoviesPage extends Component {
     return axios
       .get(path)
       .then((response) => {
-        console.log(response);
         this.setState({ movies: response.data.results });
       })
       .catch((error) => {
@@ -41,7 +40,7 @@ class MoviesPage extends Component {
   };
   render() {
     const { movies, total, page } = this.state;
-    console.log(movies);
+
     return (
       <>
         <form onSubmit={this.submitQuery}>

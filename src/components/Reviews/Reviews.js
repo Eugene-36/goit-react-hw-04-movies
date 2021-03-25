@@ -16,7 +16,6 @@ class Reviews extends Component {
 
   render() {
     const { reviews } = this.state;
-    console.log(reviews);
     return reviews.length > 0 ? (
       <ul className={s.reviews}>
         {reviews.map(({ author, content, id }) => {

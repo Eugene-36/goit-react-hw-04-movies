@@ -3,8 +3,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import MoviePreview from "../MoviePreview/MoviePreview";
 const MovieList = ({ movie }) => {
-  //console.log(movie.map((el) => el.original_title));
-  /// console.log(movie);
   return (
     <ul>
       {movie.map(({ backdrop_path, id, title }) => (
