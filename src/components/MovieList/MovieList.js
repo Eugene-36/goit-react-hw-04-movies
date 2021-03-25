@@ -1,17 +1,24 @@
 import React from "react";
 // import PropTypes from "prop-types";
-//import { Link, NavLink, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
+import MoviePreview from "../MoviePreview/MoviePreview";
 const MovieList = ({ movie }) => {
   //console.log(movie.map((el) => el.original_title));
   /// console.log(movie);
   return (
-    <div>
-      <ul>
-        {movie.map(({ backdrop_path, id, title, original_title }) => (
-          <li key={id}>{title}</li>
-        ))}
-      </ul>
-    </div>
+    <ul>
+      {movie.map(({ backdrop_path, id, title }) => (
+        <li key={id}>
+          <Link
+            to={{
+              pathname: `/movies/${id}`,
+            }}
+          >
+            <MoviePreview title={title} backdrop_path={backdrop_path} />
+          </Link>
+        </li>
+      ))}
+    </ul>
   );
 };
 export default MovieList;

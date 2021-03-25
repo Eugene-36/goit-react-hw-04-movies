@@ -2,9 +2,9 @@ import React, { Component } from "react";
 
 import Button from "../../components/Button/Button";
 import MovieList from "../../components/MovieList/MovieList";
-import api from "../../services/fetchSearch";
-import queryString from "query-string";
-
+//import getDetails from "../../services/fetchSearch";
+//import queryString from "query-string";
+import axios from "axios";
 class MoviesPage extends Component {
   state = {
     movies: [],
@@ -14,68 +14,30 @@ class MoviesPage extends Component {
     error: "",
   };
   componentDidMount() {
-    const parsed = queryString.parse(this.props.location.search);
-    if (parsed.q) {
-      this.setState({ page: Number(parsed.p), query: parsed.q });
+    if (this.props.location.search) {
+      this.onSubmitSearch(this.props.location.search.slice(7));
     }
   }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (
-      this.state.query !== prevState.query ||
-      this.state.page !== prevState.page
-    ) {
-      this.FetchSerch();
-    }
-
-    window.scrollTo({
-      top: document.documentElement.scrollHeight,
-      behavior: "smooth",
-    });
-  }
-
-  FetchSerch = () => {
-    const { query, page } = this.state;
-    api
-      .fetchSearch(query, page)
-      .then((res) => {
-        if (res.results.length === 0) {
-          this.setState({ movies: [] });
-        } else {
-          this.setState((prevState) => ({
-            movies: [...prevState.movies, ...res.results],
-            total: res.total_pages,
-          }));
-
-          this.props.location.search = queryString.stringify({
-            q: query,
-            p: page,
-          });
-
-          this.props.history.push({
-            pathname: this.props.location.pathname,
-            search: this.props.location.search,
-          });
-        }
+  onSubmitSearch = (query) => {
+    const baseUrl = "https://api.themoviedb.org/3/";
+    const apiKey = "da01c4e54a8d5b285bda18b1e0590cea";
+    const path = `${baseUrl}search/movie?api_key=${apiKey}&language=en-US&query=${query}&page=1&include_adult=false`;
+    return axios
+      .get(path)
+      .then((response) => {
+        console.log(response);
+        this.setState({ movies: response.data.results });
       })
       .catch((error) => {
-        this.setState({ error });
-        return console.log(error);
+        throw new Error(error);
+      })
+      .finally(() => {
+        if (this.state.movies.length >= 1) {
+          this.setState({ error: false });
+        } else {
+          this.setState({ error: true });
+        }
       });
-  };
-  submitQuery = (e) => {
-    e.preventDefault();
-    const value = e.target.elements.query.value;
-    if (value === this.state.query) {
-      this.fetchMovie();
-    } else {
-      this.setState({ query: value, page: 1, total: null, movies: [] });
-    }
-  };
-  handleBtn = () => {
-    this.setState((prevState) => ({
-      page: prevState.page + 1,
-    }));
   };
   render() {
     const { movies, total, page } = this.state;

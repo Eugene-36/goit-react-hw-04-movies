@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import api from "../../services/apiFilms";
+import API from "../../services/apiFilms";
 import MovieList from "../../components/MovieList/MovieList";
 
 class HomePage extends Component {
@@ -9,21 +9,9 @@ class HomePage extends Component {
     error: "Somthing went wrong....",
   };
   fetchMovie = () => {
-    api()
-      .then((response) => {
-        return response.results;
-      })
-      .then((finallRes) => {
-        console.log(finallRes);
-        if (finallRes.length === 0) {
-          return this.setState({ popularMovie: [] });
-        }
-        this.setState((prevState) => ({
-          popularMovie: [...finallRes],
-          page: prevState.page + 1,
-        }));
-      })
-      .catch((error) => this.state({ error }));
+    API.getRating().then((data) => {
+      this.setState({ popularMovie: data.results });
+    });
   };
   componentDidMount() {
     // this.setState({ page: 1 });
