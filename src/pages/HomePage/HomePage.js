@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import API from "../../services/apiFilms";
 import MovieList from "../../components/MovieList/MovieList";
-
+import s from "../HomePage/HomePage.module.css";
 class HomePage extends Component {
   state = {
     popularMovie: [],
@@ -24,7 +24,7 @@ class HomePage extends Component {
     return (
       <div>
         <>
-          <h1>Trending today</h1>
+          <h1 className={s.head}>Trending today</h1>
 
           <MovieList movie={popularMovie} />
 

@@ -1,3 +1,19 @@
 .noStyle {
+  display: flex;
+  /* width: calc(50% / 3 - 10px); */
   list-style: none;
+  text-decoration: none;
+  color: black;
+}
+.noStyle:hover {
+  color: blueviolet;
+}
+.flex {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+  /* margin-right: 20px; */
+}
+.noStyle:nth-child(2n + 1) {
+  margin-right: 10px;
 }

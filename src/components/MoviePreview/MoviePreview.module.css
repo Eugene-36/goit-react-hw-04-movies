@@ -1,0 +1,12 @@
+.picture {
+  text-decoration: none;
+  list-style: none;
+}
+.container {
+  width: 170px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.text {
+  font-size: 15px;
+}

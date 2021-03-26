@@ -13,11 +13,13 @@ const MoviePreview = ({ backdrop_path, title }) => {
           className={s.picture}
           src={poster}
           alt={title}
-          width="100"
+          width="300"
           height="auto"
         />
       </div>
-      <h2> {title}</h2>
+      <div className={s.container}>
+        <h2 className={s.text}> {title}</h2>
+      </div>
     </div>
   );
 };
