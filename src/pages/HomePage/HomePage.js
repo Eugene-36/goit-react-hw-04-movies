@@ -10,7 +10,8 @@ class HomePage extends Component {
   };
   fetchMovie = () => {
     API.getRating().then((data) => {
-      this.setState({ popularMovie: data.results });
+      let onlyFilms = data.results.filter((el) => el.media_type === "movie");
+      this.setState({ popularMovie: onlyFilms });
     });
   };
   componentDidMount() {
