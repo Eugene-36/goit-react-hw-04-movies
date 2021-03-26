@@ -15,6 +15,7 @@ const MovieDetailsCard = ({
 }) => {
   const posterUrl = "https://image.tmdb.org/t/p/w500";
   let poster = backdrop_path ? `${posterUrl}${backdrop_path}` : image;
+  console.log(onClick);
   return (
     <div className={s.MovieDetailsPage}>
       <button className={s.btnDetails} type="button" onClick={onClick}>

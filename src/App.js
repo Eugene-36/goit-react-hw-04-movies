@@ -8,9 +8,7 @@ const HomePage = lazy(() =>
   import("./pages/HomePage/HomePage" /* webpackChunkName:'HomePage'*/)
 );
 const MovieDetailsPage = lazy(() =>
-  import(
-    "./pages/MovieDetailsPage/MovieDetails" /* webpackChunkName:'MovieDetailsPage'*/
-  )
+  import("./pages/MovieDetailsPage/MovieDetails")
 );
 const MoviesPage = lazy(() =>
   import("./pages/MoviesPage/MoviesPage" /* webpackChunkName:'MoviesPage'*/)
@@ -24,9 +22,9 @@ class App extends Component {
           <Suspense fallback={<div>Loading...</div>}>
             <Switch>
               <Route path={routes.home} exact component={HomePage} />
-              <Route path={routes.moviesDetails} component={MovieDetailsPage} />
               <Route path={routes.movies} exact component={MoviesPage} />
-              <Route component={HomePage} />
+              <Route path={routes.moviesDetails} component={MovieDetailsPage} />
+              {/* <Route component={HomePage} /> */}
             </Switch>
           </Suspense>
         </>
