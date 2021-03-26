@@ -1,9 +1,9 @@
 import React from "react";
 // import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import MoviePreview from "../MoviePreview/MoviePreview";
 import s from "../MovieList/MovieList.module.css";
-const MovieList = ({ movie }) => {
+const MovieList = ({ movie, location }) => {
   return (
     <div className={s.wrapper}>
       <ul className={s.flex}>
@@ -13,6 +13,9 @@ const MovieList = ({ movie }) => {
               className={s.noStyle}
               to={{
                 pathname: `/movies/${id}`,
+                state: {
+                  from: location,
+                },
               }}
             >
               <MoviePreview title={title} backdrop_path={backdrop_path} />
