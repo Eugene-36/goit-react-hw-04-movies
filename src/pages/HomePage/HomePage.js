@@ -21,6 +21,7 @@ class HomePage extends Component {
 
   render() {
     const { popularMovie } = this.state;
+    console.log(popularMovie);
     return (
       <div>
         <>
