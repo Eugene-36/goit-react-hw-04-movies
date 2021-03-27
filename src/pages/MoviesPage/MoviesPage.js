@@ -3,8 +3,9 @@ import React, { Component } from "react";
 import Button from "../../components/Button/Button";
 import MovieList from "../../components/MovieList/MovieList";
 //import getDetails from "../../services/fetchSearch";
-//import queryString from "query-string";
+import queryString from "query-string";
 import axios from "axios";
+
 class MoviesPage extends Component {
   state = {
     movies: [],
@@ -14,8 +15,11 @@ class MoviesPage extends Component {
     error: "",
   };
   componentDidMount() {
-    if (this.props.location.search) {
-      this.onSubmitSearch(this.props.location.search.slice(7));
+    const { pathname, search } = this.props.location;
+    const parsed = queryString.parse(search);
+
+    if (parsed) {
+      this.onSubmitSearch(parsed.query);
     }
   }
   onSubmitSearch = (query) => {
@@ -51,7 +55,7 @@ class MoviesPage extends Component {
         </form>
         {movies.length > 0 ? (
           <>
-            <MovieList movie={movies} />
+            <MovieList movie={movies} {...this.props} />
             {page <= total && <Button onClick={this.handleBtn} />}
           </>
         ) : (

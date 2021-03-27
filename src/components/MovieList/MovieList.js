@@ -3,8 +3,7 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import MoviePreview from "../MoviePreview/MoviePreview";
 import s from "../MovieList/MovieList.module.css";
-const MovieList = ({ movie, locatino }) => {
-  //console.log(movie.flatMap((el) => el.locatino));
+const MovieList = ({ movie, location }) => {
   return (
     <div className={s.wrapper}>
       <ul className={s.flex}>
@@ -14,7 +13,7 @@ const MovieList = ({ movie, locatino }) => {
               className={s.noStyle}
               to={{
                 pathname: `/movies/${id}`,
-                state: { from: "/movies/:movieId" },
+                state: { from: location },
               }}
             >
               <MoviePreview title={title} backdrop_path={backdrop_path} />

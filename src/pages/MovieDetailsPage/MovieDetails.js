@@ -34,12 +34,8 @@ class MovieDetailsPage extends Component {
   }
   handleButton = () => {
     const { location, history } = this.props;
-    // console.log(location);
-    if (location.state && location.state.from) {
-      return history.push(location.state.from);
-    }
 
-    history.push("/");
+    history.push(location?.state?.from || routes.home);
   };
   render() {
     const { backdrop_path, genres, overview, title, vote_average } = this.state;

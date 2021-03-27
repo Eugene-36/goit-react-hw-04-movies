@@ -21,13 +21,14 @@ class HomePage extends Component {
 
   render() {
     const { popularMovie } = this.state;
-    console.log(popularMovie);
+    console.log(this.props.match);
+
     return (
       <div>
         <>
           <h1 className={s.head}>Trending today</h1>
 
-          <MovieList movie={popularMovie} />
+          <MovieList movie={popularMovie} {...this.props} />
 
           {/* <Button onClick={this.fetchMovie} /> */}
         </>
