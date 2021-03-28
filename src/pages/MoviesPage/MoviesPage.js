@@ -5,7 +5,7 @@ import MovieList from "../../components/MovieList/MovieList";
 //import getDetails from "../../services/fetchSearch";
 import queryString from "query-string";
 import axios from "axios";
-
+console.log(queryString);
 class MoviesPage extends Component {
   state = {
     movies: [],

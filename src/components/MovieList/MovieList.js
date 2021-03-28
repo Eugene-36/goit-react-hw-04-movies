@@ -7,21 +7,34 @@ const MovieList = ({ movie, location }) => {
   return (
     <div className={s.wrapper}>
       <ul className={s.flex}>
-        {movie.map(({ backdrop_path, id, title }) => (
-          <li key={id} className={s.noStyle}>
-            <Link
-              className={s.noStyle}
-              to={{
-                pathname: `/movies/${id}`,
-                state: { from: location },
-              }}
-            >
-              <MoviePreview title={title} backdrop_path={backdrop_path} />
-            </Link>
-          </li>
-        ))}
+        {movie.length === 1
+          ? movie.splice(0, 1)
+          : movie.map(({ backdrop_path, id, title }) => (
+              <li key={id} className={s.noStyle}>
+                <Link
+                  className={s.noStyle}
+                  to={{
+                    pathname: `/movies/${id}`,
+                    state: { from: location },
+                  }}
+                >
+                  <MoviePreview title={title} backdrop_path={backdrop_path} />
+                </Link>
+              </li>
+            ))}
       </ul>
     </div>
   );
 };
 export default MovieList;
+
+// {
+//   movies.length > 0 ? (
+//     <>
+//       <MovieList movie={movies} {...this.props} />
+//       {page <= total && <Button onClick={this.handleBtn} />}
+//     </>
+//   ) : (
+//     <h2>Введите запрос</h2>
+//   );
+// }
