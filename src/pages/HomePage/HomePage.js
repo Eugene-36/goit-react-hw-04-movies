@@ -21,7 +21,7 @@ class HomePage extends Component {
 
   render() {
     const { popularMovie } = this.state;
-    console.log(this.props.match);
+    //console.log(this.props.match);
 
     return (
       <div>

@@ -4,24 +4,23 @@ import { Link, withRouter } from "react-router-dom";
 import MoviePreview from "../MoviePreview/MoviePreview";
 import s from "../MovieList/MovieList.module.css";
 const MovieList = ({ movie, location }) => {
+  //console.log(movie);
   return (
     <div className={s.wrapper}>
       <ul className={s.flex}>
-        {movie.length === 1
-          ? movie.splice(0, 1)
-          : movie.map(({ backdrop_path, id, title }) => (
-              <li key={id} className={s.noStyle}>
-                <Link
-                  className={s.noStyle}
-                  to={{
-                    pathname: `/movies/${id}`,
-                    state: { from: location },
-                  }}
-                >
-                  <MoviePreview title={title} backdrop_path={backdrop_path} />
-                </Link>
-              </li>
-            ))}
+        {movie.map(({ backdrop_path, id, title }) => (
+          <li key={id} className={s.noStyle}>
+            <Link
+              className={s.noStyle}
+              to={{
+                pathname: `/movies/${id}`,
+                state: { from: location },
+              }}
+            >
+              <MoviePreview title={title} backdrop_path={backdrop_path} />
+            </Link>
+          </li>
+        ))}
       </ul>
     </div>
   );

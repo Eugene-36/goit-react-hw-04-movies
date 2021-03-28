@@ -9,7 +9,7 @@ console.log(queryString);
 class MoviesPage extends Component {
   state = {
     movies: [],
-    query: "",
+    query: null,
     page: 1,
     total: null,
     error: "",
@@ -17,15 +17,18 @@ class MoviesPage extends Component {
   componentDidMount() {
     const { pathname, search } = this.props.location;
     const parsed = queryString.parse(search);
-
-    if (parsed) {
+    //console.log(parsed.query);
+    if (pathname && search) {
       this.onSubmitSearch(parsed.query);
     }
   }
   onSubmitSearch = (query) => {
+    // console.log(query);
+
     const baseUrl = "https://api.themoviedb.org/3/";
     const apiKey = "da01c4e54a8d5b285bda18b1e0590cea";
     const path = `${baseUrl}search/movie?api_key=${apiKey}&language=en-US&query=${query}&page=1&include_adult=false`;
+
     return axios
       .get(path)
       .then((response) => {
