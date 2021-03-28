@@ -6,23 +6,13 @@ const Navigation = () => {
   return (
     <div className={s.Navigation}>
       <ul className={s.list}>
-        <li>
-          <NavLink
-            exact
-            to={routes.home}
-            className={s.listItem}
-            activeClassName={s.activeLink}
-          >
+        <li className={s.deleteStyle}>
+          <NavLink exact to={routes.home} className={s.activeLink}>
             Home
           </NavLink>
         </li>
-        <li>
-          <NavLink
-            exact
-            to={routes.movies}
-            className={s.listItem}
-            activeClassName={s.activeLink}
-          >
+        <li className={s.deleteStyle}>
+          <NavLink exact to={routes.movies} className={s.activeLink}>
             Movies
           </NavLink>
         </li>

@@ -45,7 +45,7 @@ const MovieDetailsCard = ({
                 pathname: `${propsik.match.url}/cast`,
                 state: { ...propsik.location },
               }}
-              className={s.listItem}
+              className={s.firstBtn}
             >
               Cast
             </NavLink>
@@ -56,7 +56,7 @@ const MovieDetailsCard = ({
                 pathname: `${propsik.match.url}/reviews`,
                 state: { ...propsik.location },
               }}
-              className={s.listItem}
+              className={s.secondBtn}
             >
               Reviews
             </NavLink>

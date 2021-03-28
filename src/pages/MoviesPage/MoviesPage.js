@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Button from "../../components/Button/Button";
 import MovieList from "../../components/MovieList/MovieList";
 //import getDetails from "../../services/fetchSearch";
+import s from "../MoviesPage/MoviesPage.module.css";
 import queryString from "query-string";
 import axios from "axios";
 console.log(queryString);
@@ -50,20 +51,20 @@ class MoviesPage extends Component {
 
     return (
       <>
-        <form onSubmit={this.submitQuery}>
-          <label>
-            <input type="text" name="query" />
+        <h2 className={s.head}>Введите запрос</h2>
+        <form onSubmit={this.submitQuery} className={s.formgroup}>
+          <label className={s.formgroup}>
+            <input type="text" name="query" placeholder="Enter some text" />
           </label>
-          <button type="submit">Search</button>
+          <button type="submit" className={s.styleButton}>
+            Search
+          </button>
         </form>
-        {movies.length > 0 ? (
-          <>
-            <MovieList movie={movies} {...this.props} />
-            {page <= total && <Button onClick={this.handleBtn} />}
-          </>
-        ) : (
-          <h2>Введите запрос</h2>
-        )}
+
+        <>
+          <MovieList movie={movies} {...this.props} />
+          {page <= total && <Button onClick={this.handleBtn} />}
+        </>
       </>
     );
   }

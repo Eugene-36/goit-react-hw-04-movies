@@ -9,4 +9,7 @@
 }
 .text {
   font-size: 15px;
+  color: #fff;
+  mix-blend-mode: difference;
+  font: 900 15px/15px Arial;
 }
