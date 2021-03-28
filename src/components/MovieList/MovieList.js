@@ -4,7 +4,7 @@ import { Link, withRouter } from "react-router-dom";
 import MoviePreview from "../MoviePreview/MoviePreview";
 import s from "../MovieList/MovieList.module.css";
 const MovieList = ({ movie, location }) => {
-  //console.log(movie);
+  console.log(movie);
   return (
     <div className={s.wrapper}>
       <ul className={s.flex}>
@@ -12,6 +12,7 @@ const MovieList = ({ movie, location }) => {
           <li key={id} className={s.noStyle}>
             <Link
               className={s.noStyle}
+              // className={s.newStyle}
               to={{
                 pathname: `/movies/${id}`,
                 state: { from: location },

@@ -27,7 +27,9 @@ const MovieDetailsCard = ({
           <h1>{title}</h1>
           <p>User score: {vote_average}</p>
           <h2>Overviev</h2>
-          <p>{overview}</p>
+          <div className={s.textStyle}>
+            <p>{overview}</p>
+          </div>
           <h3>Genres</h3>
           <p>
             {genres.map(({ name }) => {

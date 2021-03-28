@@ -25,7 +25,13 @@ class Cast extends Component {
           let poster = profile_path ? `${posterUrl}${profile_path}` : image;
           return (
             <li key={id} className={s.item}>
-              <img className={s.imageCast} src={poster} alt={name} />
+              <img
+                className={s.imageCast}
+                src={poster}
+                alt={name}
+                // height="100%"
+                // width="150px"
+              />
               <h2>{name}</h2>
               <p>{character}</p>
             </li>

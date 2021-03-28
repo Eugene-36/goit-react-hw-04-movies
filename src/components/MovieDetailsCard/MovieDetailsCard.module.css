@@ -82,3 +82,6 @@ a.btnDetails:active {
 .listItem {
   list-style: none;
 }
+.textStyle {
+  width: 300px;
+}
