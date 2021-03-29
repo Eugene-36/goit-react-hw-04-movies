@@ -13,7 +13,8 @@ const MovieDetailsCard = ({
   onClick,
   propsik,
 }) => {
-  // const path = propsik.location.state.from.pathname;
+  const path = propsik.location.state.from;
+  console.log(path);
   const posterUrl = "https://image.tmdb.org/t/p/w500";
   let poster = backdrop_path ? `${posterUrl}${backdrop_path}` : image;
 
@@ -46,7 +47,7 @@ const MovieDetailsCard = ({
             <NavLink
               to={{
                 pathname: `${propsik.match.url}/cast`,
-                state: { ...propsik.location },
+                state: { from: propsik.location },
               }}
               className={s.firstBtn}
             >
@@ -57,7 +58,7 @@ const MovieDetailsCard = ({
             <NavLink
               to={{
                 pathname: `${propsik.match.url}/reviews`,
-                state: { ...propsik.location },
+                state: { from: propsik.location },
               }}
               className={s.secondBtn}
             >

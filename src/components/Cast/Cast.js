@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import image from "../../img/withoutImg.jpg";
 import API from "../../services/apiFilms";
 import s from "./Cast.module.css";
-
+import MovieList from "../MovieList/MovieList";
 class Cast extends Component {
   state = {
     cast: [],

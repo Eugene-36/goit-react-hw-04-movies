@@ -4,6 +4,7 @@ import { Link, withRouter } from "react-router-dom";
 import MoviePreview from "../MoviePreview/MoviePreview";
 import s from "../MovieList/MovieList.module.css";
 const MovieList = ({ movie, location }) => {
+  console.log(location);
   return (
     <div className={s.wrapper}>
       <ul className={s.flex}>

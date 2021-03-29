@@ -39,7 +39,7 @@ class MovieDetailsPage extends Component {
   };
   render() {
     const { backdrop_path, genres, overview, title, vote_average } = this.state;
-
+    console.log(this.props.match.path);
     return (
       <>
         <MovieDetailsCard
@@ -51,6 +51,7 @@ class MovieDetailsPage extends Component {
           onClick={this.handleButton}
           propsik={this.props}
         />
+
         <Switch>
           <Route path={`${this.props.match.path}/cast`} component={Cast} />
           <Route
